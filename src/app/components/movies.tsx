@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Movie } from "../types";
 import {CircularProgress, Card} from "@nextui-org/react";
 import {TopMovies} from "./top-movies";
+import MyNavbar from "./Navbar";
 
 export default function Movies() {
     const [data, setData] = useState<{results: Movie[]} | null>(null);
@@ -31,6 +32,7 @@ export default function Movies() {
 
     return (
         <div>
+            <MyNavbar />
             {data ? (
         <Card>
         <h2 className="font-bold text-large text-center my-5">Top 10 movies</h2>

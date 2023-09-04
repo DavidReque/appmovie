@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { Movie } from "../types";
-import {CircularProgress} from "@nextui-org/react";
-import {Card, CardHeader, CardBody, Image} from "@nextui-org/react";
+import {CircularProgress, Card} from "@nextui-org/react";
+import {TopMovies} from "./top-movies";
 
 export default function Movies() {
     const [data, setData] = useState<{results: Movie[]} | null>(null);
@@ -33,25 +33,7 @@ export default function Movies() {
         <div className="dark">
             {data ? (
         <Card>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {data.results.slice(0, 10).map((movie) => (
-              <div key={movie.id}>
-                <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                  <h4 className="font-bold text-large">{movie.title}</h4>
-                </CardHeader>
-                {movie.backdrop_path && (
-                  <CardBody className="overflow-visible py-2">
-                    <Image
-                      alt={movie.title}
-                      className="object-cover rounded-xl"
-                      src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
-                      width={270}
-                    />
-                  </CardBody>
-                )}
-              </div>
-            ))}
-          </div>
+          <TopMovies movies={data.results.slice(0, 10)}/>
         </Card>
       ) : (
         <CircularProgress aria-label="Loading..." />

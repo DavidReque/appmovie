@@ -1,10 +1,11 @@
 'use client'
 
 import { useState, useEffect } from "react";
+import { Movie } from "../types";
 
 export default function Movies() {
-    const [data, setData] = useState<any | null>(null);
-    const URL = `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=es`;
+    const [data, setData] = useState<{results: Movie[]} | null>(null);
+    const URL = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=es`;
 
     useEffect(() => {
         async function getMovies() {
@@ -29,7 +30,16 @@ export default function Movies() {
     return (
         <div>
             {data ? (
-        <pre>{JSON.stringify(data, null, 2)}</pre>
+        <pre>{data.results.map(movie => (
+            <div key={movie.id}>
+                <h2>{movie.name}</h2>
+{movie.backdrop_path && (
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
+                alt={movie.name}
+              />
+            )}            </div>
+        ))}</pre>
       ) : (
         <p>Cargando datos...</p>
       )}

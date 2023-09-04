@@ -8,7 +8,7 @@ type TopMoviesProps = {
 export const TopMovies: React.FC<TopMoviesProps> = ({movies}) => {
   return (
     <>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 ml-10 mb-12">
             {movies.map((movie) => (
               <div key={movie.id}>
                 <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">

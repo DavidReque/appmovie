@@ -33,11 +33,11 @@ export default function Movies() {
         <div>
             {data ? (
         <Card>
-        <h2 className="font-bold text-large text-center my-5">Top movies</h2>
+        <h2 className="font-bold text-large text-center my-5">Top 10 movies</h2>
           <TopMovies movies={data.results.slice(0, 10)}/>
         </Card>
       ) : (
-        <CircularProgress aria-label="Loading..." />
+        <CircularProgress className="flex justify-center items-center" aria-label="Loading..." />
       )}
         </div>
     );

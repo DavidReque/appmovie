@@ -32,24 +32,30 @@ export default function Movies() {
     return (
         <div className="dark">
             {data ? (
-        <Card>{data.results.map(movie => (
-            <div key={movie.id}>
-    <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-        <h4 className="font-bold text-large">{movie.title}</h4>
-    </CardHeader>{movie.backdrop_path && (
-              <CardBody className="overflow-visible py-2">
-              <Image
-                alt={movie.title}
-                className="object-cover rounded-xl"
-                src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}                width={270}
-              />
-            </CardBody>
-            )}
-        </div>
-        ))}</Card>
+        <Card>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {data.results.slice(0, 10).map((movie) => (
+              <div key={movie.id}>
+                <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                  <h4 className="font-bold text-large">{movie.title}</h4>
+                </CardHeader>
+                {movie.backdrop_path && (
+                  <CardBody className="overflow-visible py-2">
+                    <Image
+                      alt={movie.title}
+                      className="object-cover rounded-xl"
+                      src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
+                      width={270}
+                    />
+                  </CardBody>
+                )}
+              </div>
+            ))}
+          </div>
+        </Card>
       ) : (
         <CircularProgress aria-label="Loading..." />
-        )}
+      )}
         </div>
     );
 }

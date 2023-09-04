@@ -30,9 +30,10 @@ export default function Movies() {
     }, []);
 
     return (
-        <div className="dark">
+        <div>
             {data ? (
         <Card>
+        <h2 className="font-bold text-large text-center my-5">Top movies</h2>
           <TopMovies movies={data.results.slice(0, 10)}/>
         </Card>
       ) : (

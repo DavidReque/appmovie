@@ -1,4 +1,4 @@
-import {Card, CardHeader, CardBody, Image} from "@nextui-org/react";
+import { CardHeader, CardBody, Image} from "@nextui-org/react";
 import { Movie } from "../types";
 
 type TopMoviesProps = {
@@ -11,9 +11,6 @@ export const TopMovies: React.FC<TopMoviesProps> = ({movies}) => {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 ml-10 mb-12">
             {movies.map((movie) => (
               <div key={movie.id}>
-                <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                  <h4 className="font-bold text-large">{movie.title}</h4>
-                </CardHeader>
                 {movie.backdrop_path && (
                   <CardBody className="overflow-visible py-2">
                     <Image
@@ -24,6 +21,9 @@ export const TopMovies: React.FC<TopMoviesProps> = ({movies}) => {
                     />
                   </CardBody>
                 )}
+                <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                  <h4 className="font-bold text-large">{movie.title}</h4>
+                </CardHeader>
               </div>
             ))}
           </div></>

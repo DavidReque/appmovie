@@ -5,6 +5,7 @@ import { Movie } from "../types";
 import {CircularProgress, Card} from "@nextui-org/react";
 import {TopMovies} from "./top-movies";
 import MyNavbar from "./Navbar";
+import {Carousel} from "./carousel";
 
 export default function Movies() {
     const [data, setData] = useState<{results: Movie[]} | null>(null);
@@ -34,10 +35,13 @@ export default function Movies() {
         <div>
             <MyNavbar />
             {data ? (
+    <div>
+    <Carousel moviesCarousel={data.results.slice(5, 10)}/>
         <Card>
-        <h2 className="font-bold text-large text-center my-5">Top 10 movies</h2>
-          <TopMovies movies={data.results.slice(0, 10)}/>
+            <h2 className="font-bold text-large text-center my-5">Top 10 movies</h2>
+            <TopMovies movies={data.results.slice(0, 10)}/>
         </Card>
+    </div>
       ) : (
         <CircularProgress className="mx-72 my-96 text-center" aria-label="Loading..." />
       )}

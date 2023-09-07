@@ -36,7 +36,7 @@ export default function Movies() {
             <MyNavbar />
             {data ? (
     <div>
-    <MyCarousel moviesCarousel={data.results.slice(5, 10)}/>
+    <MyCarousel moviesCarousel={data.results.slice(10, 14)}/>
         <Card>
             <h2 className="font-bold text-large text-center my-5">Top 10 movies</h2>
             <TopMovies movies={data.results.slice(0, 10)}/>

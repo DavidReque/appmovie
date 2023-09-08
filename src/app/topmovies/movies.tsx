@@ -1,33 +1,39 @@
 'use client'
 
 import { useState, useEffect } from "react";
-import {Card, CardBody, CardHeader, Image} from "@nextui-org/react";
+import { Card, CardBody, CardHeader, Image, Pagination } from "@nextui-org/react";
 import { Movie } from "../types";
 
-
 export default function Movies() {
-    const [data, setData] = useState<{results: Movie[]} | null>(null);
-    const URL = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=es`;
+  const [data, setData] = useState<{ results: Movie[] } | null>(null);
+  const [page, setPage] = useState<number>(1);
 
-    useEffect(() => {
-        async function getMovies() {
-            try {
-                const res = await fetch(URL);
+  const URL = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=es&page=${page}`;
 
-                if (!res.ok) {
-                    throw new Error('No se pudo obtener la data');
-                }
+  useEffect(() => {
+    async function getMovies() {
+      try {
+        const res = await fetch(URL);
 
-                const responseData = await res.json();
-
-                setData(responseData);
-            } catch (error) {
-                console.error(error);
-            }
+        if (!res.ok) {
+          throw new Error('No se pudo obtener la data');
         }
 
-        getMovies();
-    }, []);
+        const responseData = await res.json();
+
+        setData(responseData);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    getMovies();
+  }, [page]); // Agregamos 'page' como dependencia para que se recargue cuando cambie
+
+  // Función para cambiar la página
+  const handlePageChange = (newPage: number) => {
+    setPage(newPage);
+  };
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 ml-10 mb-12 mr-10">
@@ -51,6 +57,14 @@ export default function Movies() {
             </Card>
           </div>
         ))}
+      <Pagination
+        isCompact
+        showControls
+        total={10}
+        initialPage={1}
+        page={page} // Establece la página actual
+        onChange={handlePageChange} // Maneja el cambio de página
+      />
     </div>
-  )
+  );
 }

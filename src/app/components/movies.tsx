@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Movie } from "../types";
-import {CircularProgress, Card} from "@nextui-org/react";
+import {Spinner, Card} from "@nextui-org/react";
 import {TopMovies} from "./top-movies";
 import MyNavbar from "./Navbar";
 import {MyCarousel} from "./carousel";
@@ -43,7 +43,7 @@ export default function Movies() {
         </Card>
     </div>
       ) : (
-        <CircularProgress className="mx-72 my-96 text-center" aria-label="Loading..." />
+        <Spinner className="mx-72 my-96 text-center" aria-label="Loading..." />
       )}
         </div>
     );

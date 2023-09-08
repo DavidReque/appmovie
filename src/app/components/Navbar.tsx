@@ -5,15 +5,9 @@ export default function MyNavbar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
+    "Peliculas populares",
+    "Mejor calificado",
+    "Próximo",
   ];
 
   return (
@@ -25,24 +19,24 @@ export default function MyNavbar() {
         />
         <NavbarBrand>
           <p>Logo</p>
-          <p className="font-bold text-inherit">ACME</p>
+          <p className="font-bold text-inherit">Movie</p>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
           <Link color="foreground" href="#">
-            Features
+            Peliculas populares
           </Link>
         </NavbarItem>
         <NavbarItem>
           <Link color="foreground" href="#">
-            Customers
+            Mejor calificado
           </Link>
         </NavbarItem>
         <NavbarItem>
           <Link color="foreground" href="#">
-            Integrations
+            Próximo
           </Link>
         </NavbarItem>
       </NavbarContent>

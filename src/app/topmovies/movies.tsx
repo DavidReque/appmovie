@@ -5,6 +5,7 @@
 import { useState, useEffect } from "react";
 import { Card, CardBody, CardHeader, Image, Pagination, Spinner } from "@nextui-org/react";
 import { Movie } from "../types";
+import {ButtonModal} from "../components/button-modal";
 
 export default function Movies() {
   const [data, setData] = useState<{ results: Movie[] } | null>(null);
@@ -57,6 +58,7 @@ export default function Movies() {
                   <CardHeader className="pb-3 px-4 flex flex-col items-start">
                     <h4 className="font-semibold text-lg">{movie.title}</h4>
                     <p className="text-gray-500 text-sm">{movie.release_date}</p>
+                    <ButtonModal title={movie.title} data={movie.overview}/>
                   </CardHeader>
                 </Card>
               </div>

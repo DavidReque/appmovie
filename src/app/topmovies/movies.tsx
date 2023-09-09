@@ -1,7 +1,9 @@
 'use client'
 
+'use client'
+
 import { useState, useEffect } from "react";
-import { Card, CardBody, CardHeader, Image, Pagination } from "@nextui-org/react";
+import { Card, CardBody, CardHeader, Image, Pagination, Spinner } from "@nextui-org/react";
 import { Movie } from "../types";
 
 export default function Movies() {
@@ -36,35 +38,45 @@ export default function Movies() {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 ml-10 mb-12 mr-10">
-      {data &&
-        data.results.map((movie) => (
-          <div key={movie.id} className="w-full">
-            <Card className="hover:shadow-xl">
-              {movie.backdrop_path && (
-                <CardBody className="overflow-hidden p-0">
-                  <Image
-                    alt={movie.title}
-                    className="object-cover w-full h-72 rounded-t-lg"
-                    src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
-                  />
-                </CardBody>
-              )}
-              <CardHeader className="pb-3 px-4 flex flex-col items-start">
-                <h4 className="font-semibold text-lg">{movie.title}</h4>
-                <p className="text-gray-500 text-sm">{movie.release_date}</p>
-              </CardHeader>
-            </Card>
+    <div className="ml-10 mb-12 mr-10">
+      {data ? (
+        <>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {data.results.map((movie) => (
+              <div key={movie.id} className="w-full">
+                <Card className="hover:shadow-xl">
+                  {movie.backdrop_path && (
+                    <CardBody className="overflow-hidden p-0">
+                      <Image
+                        alt={movie.title}
+                        className="object-cover w-full h-72 rounded-t-lg"
+                        src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
+                      />
+                    </CardBody>
+                  )}
+                  <CardHeader className="pb-3 px-4 flex flex-col items-start">
+                    <h4 className="font-semibold text-lg">{movie.title}</h4>
+                    <p className="text-gray-500 text-sm">{movie.release_date}</p>
+                  </CardHeader>
+                </Card>
+              </div>
+            ))}
           </div>
-        ))}
-      <Pagination
-        isCompact
-        showControls
-        total={10}
-        initialPage={1}
-        page={page} // Establece la página actual
-        onChange={handlePageChange} // Maneja el cambio de página
-      />
+          <div className="flex justify-center my-8">
+            <Pagination
+              isCompact
+              showControls
+              total={10}
+              initialPage={1}
+              page={page}
+              onChange={handlePageChange}
+            />
+          </div>
+        </>
+      ) : (
+        <div className="w-full flex justify-center items-center">
+          <Spinner className="mx-72 my-96 text-center" aria-label="Loading..." />        </div>
+      )}
     </div>
   );
 }

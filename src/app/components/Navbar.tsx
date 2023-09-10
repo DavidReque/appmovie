@@ -4,12 +4,6 @@ import {Navbar, NavbarBrand, NavbarMenuToggle, NavbarContent, NavbarItem, Link, 
 export default function MyNavbar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-  const menuItems = [
-    "Peliculas populares",
-    "Mejor calificado",
-    "Próximo",
-  ];
-
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
@@ -48,20 +42,25 @@ export default function MyNavbar() {
         </NavbarItem>*/}
       </NavbarContent>
       <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              color={
-                index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"
-              }
-              className="w-full"
-              href="#"
-              size="lg"
-            >
-              {item}
-            </Link>
-          </NavbarMenuItem>
-        ))}
+        <NavbarMenuItem>
+          <ul className="flex justify-center flex-col items-center">
+          <Link 
+          className="text-gray-300 my-2"
+          href="/topmovies">
+            Peliculas Populares
+          </Link>
+          <Link 
+          className="text-gray-300 my-2"
+          href="/topmovies">
+            Mejor calificado
+          </Link>
+          <Link 
+          className="text-gray-300 my-2"
+          href="/topmovies">
+            Próximo
+          </Link>
+          </ul>
+        </NavbarMenuItem>
       </NavbarMenu>
     </Navbar>
   );

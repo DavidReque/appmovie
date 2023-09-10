@@ -5,3 +5,8 @@ export type Movie = {
     release_date: string;
     overview: string
   };
+
+  export type PostsProps = {
+    children: React.ReactNode,
+    params: { id: string }
+  }

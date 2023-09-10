@@ -24,12 +24,12 @@ export default function MyNavbar() {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="/mejorcalificado">
             Mejor calificado
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="/proximo">
             Próximo
           </Link>
         </NavbarItem>
@@ -51,12 +51,12 @@ export default function MyNavbar() {
           </Link>
           <Link 
           className="text-gray-300 my-2"
-          href="/topmovies">
+          href="/mejorcalificado">
             Mejor calificado
           </Link>
           <Link 
           className="text-gray-300 my-2"
-          href="/topmovies">
+          href="/proximo">
             Próximo
           </Link>
           </ul>

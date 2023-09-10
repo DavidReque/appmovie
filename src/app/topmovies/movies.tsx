@@ -1,7 +1,5 @@
 'use client'
 
-'use client'
-
 import { useState, useEffect } from "react";
 import { Card, CardBody, CardHeader, Image, Pagination, Spinner } from "@nextui-org/react";
 import { Movie } from "../types";

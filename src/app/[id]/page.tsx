@@ -3,7 +3,6 @@
 import { Card, CardBody, CardHeader, Image } from '@nextui-org/react';
 import React, {useState, useEffect} from 'react';
 import SubMenu from './submenu';
-import { type } from 'os';
 
 async function getMovie(id: string) {
   const URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=es`;
@@ -26,7 +25,7 @@ const MovieId: React.FC<PostsProps> = ({ children, params }) => {
 
   useEffect(() => {
     getMovie(id).then((data) => setPost(data));
-  }, [id]);
+  }, [id, URL]);
 
   return (
     <div>

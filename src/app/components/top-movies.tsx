@@ -1,16 +1,23 @@
 import { CardHeader, CardBody, Image} from "@nextui-org/react";
 import { Movie } from "../types";
+import { useRouter } from "next/navigation";
 
 type TopMoviesProps = {
     movies: Movie[];
   };
 
 export const TopMovies: React.FC<TopMoviesProps> = ({movies}) => {
+  const router = useRouter();
+
   return (
     <>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 ml-10 mb-12">
             {movies.map((movie) => (
-              <div key={movie.id}>
+              <div key={movie.id}
+              className="cursor-pointer"
+              onClick={() => {
+                router.push(`/${movie.id}`);
+              }}>
                 {movie.backdrop_path && (
                   <CardBody className="overflow-visible py-2">
                     <Image

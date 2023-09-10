@@ -7,6 +7,5 @@ export type Movie = {
   };
 
   export type PostsProps = {
-    children: React.ReactNode,
     params: { id: string }
   }

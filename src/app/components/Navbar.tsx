@@ -33,6 +33,11 @@ export default function MyNavbar() {
             Próximo
           </Link>
         </NavbarItem>
+        <NavbarItem>
+          <Link color="primary" href="/photos">
+            Fotos
+          </Link>
+        </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
         {/*<NavbarItem>
@@ -58,6 +63,11 @@ export default function MyNavbar() {
           className="text-gray-300 my-2"
           href="/proximo">
             Próximo
+          </Link>
+          <Link 
+          className="text-blue-600 my-2"
+          href="/photos">
+            Fotos
           </Link>
           </ul>
         </NavbarMenuItem>

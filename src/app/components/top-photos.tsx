@@ -7,7 +7,7 @@ export default function TopPhotos() {
   const imageArray = images.slice(0, 5);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-6">
       {imageArray.map((img, index) => (
         <div key={index}>
           <div className="relative group overflow-hidden rounded-lg">

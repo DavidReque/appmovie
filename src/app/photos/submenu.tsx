@@ -11,7 +11,7 @@ export default function SubMenu() {
         <div className="flex h-5 items-center space-x-4 text-small">
           <Link href="/">Inicio</Link>
           <Divider orientation="vertical" />
-          <Link href="/topmovies">Photos</Link>
+          <Link href="/photos">Fotos</Link>
         </div>
       </div>
     </div>

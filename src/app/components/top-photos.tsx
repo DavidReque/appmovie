@@ -16,9 +16,9 @@ export default function TopPhotos() {
               src={img.src}
               alt={`Image ${index}`}
             />
-            <Link href='/photos' className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-black bg-opacity-50 hover:cursor-pointer">
-              <span className="text-white font-bold">Ver imagen</span>
-            </Link>
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-black bg-opacity-50 hover:cursor-pointer">
+              <Link href='/photos' className="text-white font-bold">Ver imagen</Link>
+            </div>
           </div>
         </div>
       ))}

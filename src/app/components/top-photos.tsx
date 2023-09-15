@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function TopPhotos() {
 
-  const imageArray = images.slice(0, 5);
+  const imageArray = images.slice(0, 4);
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-9">

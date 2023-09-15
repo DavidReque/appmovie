@@ -50,22 +50,22 @@ export default function MyNavbar() {
         <NavbarMenuItem>
           <ul className="flex justify-center flex-col items-center">
           <Link 
-          className="text-gray-300 my-2"
+          className="text-gray-300 my-2 text-lg"
           href="/topmovies">
             Peliculas Populares
           </Link>
           <Link 
-          className="text-gray-300 my-2"
+          className="text-gray-300 my-2 text-lg"
           href="/mejorcalificado">
             Mejor calificado
           </Link>
           <Link 
-          className="text-gray-300 my-2"
+          className="text-gray-300 my-2 text-lg"
           href="/proximo">
             Próximo
           </Link>
           <Link 
-          className="text-blue-600 my-2"
+          className="text-blue-600 my-2 text-lg"
           href="/photos">
             Fotos
           </Link>

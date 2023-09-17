@@ -48,7 +48,7 @@ export default function Proximo() {
                     <CardBody className="overflow-hidden p-0">
                       <Image
                         alt={movie.title}
-                        className="object-cover w-full h-72 rounded-t-lg"
+                        className="object-cover w-full rounded-t-lg"
                         src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
                       />
                     </CardBody>

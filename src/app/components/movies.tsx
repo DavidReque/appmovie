@@ -7,6 +7,7 @@ import {TopMovies} from "./top-movies";
 import MyNavbar from "./Navbar";
 import {MyCarousel} from "./carousel";
 import TopPhotos from "./top-photos";
+import Filters from "./filters";
 
 export default function Movies() {
     const [data, setData] = useState<{results: Movie[]} | null>(null);
@@ -43,6 +44,7 @@ export default function Movies() {
             <TopMovies movies={data.results.slice(0, 10)}/>
         </Card>
         <TopPhotos/>
+        <Filters/>
     </div>
       ) : (
         <Spinner className="mx-72 my-96 text-center" aria-label="Loading..." />

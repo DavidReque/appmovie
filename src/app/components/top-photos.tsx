@@ -7,7 +7,9 @@ export default function TopPhotos() {
   const imageArray = images.slice(0, 4);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-9">
+    <section>
+      <h4 className="flex justify-center items-center text-center my-8 text-3xl font-medium">Fotos</h4>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-9">
       {imageArray.map((img, index) => (
         <div key={index}>
           <div className="relative group overflow-hidden rounded-lg">
@@ -23,5 +25,6 @@ export default function TopPhotos() {
         </div>
       ))}
     </div>
+    </section>
   );
 }

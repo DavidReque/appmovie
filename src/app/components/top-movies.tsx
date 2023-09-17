@@ -12,7 +12,7 @@ export const TopMovies: React.FC<TopMoviesProps> = ({movies}) => {
   return (
     <>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 ml-10 mb-12">
-            {movies.map((movie) => (
+            {movies.map((movie, index) => (
               <div key={movie.id}
               className="cursor-pointer"
               onClick={() => {
@@ -29,7 +29,7 @@ export const TopMovies: React.FC<TopMoviesProps> = ({movies}) => {
                   </CardBody>
                 )}
                 <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                  <h4 className="font-bold text-large">{movie.title}</h4>
+                  <h4 className="font-bold text-large">{index + 1} {movie.title}</h4>
                 </CardHeader>
               </div>
             ))}

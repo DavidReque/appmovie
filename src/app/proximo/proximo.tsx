@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Card, CardBody, CardHeader, Image, Pagination, Spinner } from "@nextui-org/react";
 import { Movie } from "../types";
 import {ButtonModal} from "../components/button-modal";
+import ButtonUp from "../components/button-up";
 
 export default function Proximo() {
   const [data, setData] = useState<{ results: Movie[] } | null>(null);
@@ -71,6 +72,7 @@ export default function Proximo() {
               page={page}
               onChange={handlePageChange}
             />
+            <ButtonUp/>
           </div>
         </>
       ) : (

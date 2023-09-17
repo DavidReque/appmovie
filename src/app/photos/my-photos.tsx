@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { images } from "../movies";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
+import ButtonUp from "../components/button-up";
 
 export default function MyPhotos() {
   const [selectedImage, setSelectedImage] = useState<string| null>(null);
@@ -51,6 +52,7 @@ export default function MyPhotos() {
           </ModalFooter>
         </ModalContent>
       </Modal>
+      <ButtonUp/>
     </div>
   );
 }

@@ -40,7 +40,7 @@ export default function MyPhotos() {
               <img
                 src={selectedImage}
                 alt="Imagen en pantalla completa"
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain pr-4"
               />
             )}
           </ModalBody>

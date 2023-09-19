@@ -31,17 +31,21 @@ export const MyCarousel: React.FC<TopMoviesCarouselProps> = ({ moviesCarousel })
         showStatus={false} // Oculta el estado del carrusel (opcional)
       >
         {moviesCarousel.map((movie) => (
-          <div key={movie.id}>
+          <div key={movie.id} className="relative">
+          <div className="border-b">
             <img
               src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
               alt={movie.title}
             />
-            <p>
-              <span className="bg-transparent bg-opacity-50 text-white text-lg sm:text-2xl font-semibold p-2 absolute bottom-0 left-0">
-                {movie.title}
-              </span>
-            </p>
+            <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-black via-transparent to-transparent"></div>
           </div>
+          <p>
+            <span className="text-white text-lg sm:text-2xl font-semibold p-2 absolute bottom-0 left-0 w-full">
+              {movie.title}
+            </span>
+          </p>
+        </div>
+        
         ))}
       </Carousel>
     </div>

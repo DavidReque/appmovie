@@ -33,7 +33,8 @@ export default function MyPhotos() {
       ))}
 
       {/* Modal */}
-      <Modal size="full" isOpen={isOpen} onClose={onClose}>
+      <Modal size="full" isOpen={isOpen} onClose={onClose}
+      style={{ zIndex: 1000 }}>
         <ModalContent>
           <ModalHeader>Imagen en pantalla completa</ModalHeader>
           <ModalBody>
@@ -41,7 +42,7 @@ export default function MyPhotos() {
               <img
                 src={selectedImage}
                 alt="Imagen en pantalla completa"
-                className="w-full h-full object-contain pr-4"
+                className="w-full h-full object-contain"
               />
             )}
           </ModalBody>
@@ -52,7 +53,6 @@ export default function MyPhotos() {
           </ModalFooter>
         </ModalContent>
       </Modal>
-      <ButtonUp/>
     </div>
   );
 }

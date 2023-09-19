@@ -9,3 +9,8 @@ export type Movie = {
   export type PostsProps = {
     params: { id: string }
   }
+
+  export type filtersProps = {
+    activeFilter: string,
+    onChangeFilter: (filter: string) => void
+  }

@@ -42,7 +42,7 @@ export default function Movies() {
       {data ? (
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {data.results.map((movie) => (
+            {data.results.map((movie, index) => (
               <div key={movie.id} className="w-full">
                 <Card className="hover:shadow-xl">
                   {movie.backdrop_path && (
@@ -55,7 +55,7 @@ export default function Movies() {
                     </CardBody>
                   )}
                   <CardHeader className="pb-3 px-4 flex flex-col items-start">
-                    <h4 className="font-semibold text-lg">{movie.title}</h4>
+                    <h4 className="font-semibold text-lg">{index + 1}. {movie.title}</h4>
                     <p className="text-gray-500 text-sm">{movie.release_date}</p>
                     <ButtonModal title={movie.title} data={movie.overview}/>
                   </CardHeader>

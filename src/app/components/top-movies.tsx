@@ -29,7 +29,7 @@ export const TopMovies: React.FC<TopMoviesProps> = ({movies}) => {
                   </CardBody>
                 )}
                 <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                  <h4 className="font-bold text-large">{index + 1} {movie.title}</h4>
+                  <h4 className="font-bold text-large">{index + 1}. {movie.title}</h4>
                 </CardHeader>
               </div>
             ))}

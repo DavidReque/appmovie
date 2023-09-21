@@ -53,6 +53,7 @@ export default function MyPhotos() {
           </ModalFooter>
         </ModalContent>
       </Modal>
+      <ButtonUp/>
     </div>
   );
 }

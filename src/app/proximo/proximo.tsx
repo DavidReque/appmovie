@@ -65,6 +65,7 @@ export default function Proximo() {
           </div>
           <div className="flex justify-center my-8">
             <Pagination
+            className="mb-16"
               isCompact
               showControls
               total={10}

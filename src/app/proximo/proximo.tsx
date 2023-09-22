@@ -9,28 +9,33 @@ import ButtonUp from "../components/button-up";
 export default function Proximo() {
   const [data, setData] = useState<{ results: Movie[] } | null>(null);
   const [page, setPage] = useState<number>(1);
-
-  const URL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=es&page=${page}`;
+  const [loadedPages, setLoadedPages] = useState<number[]>([]); // Guarda las páginas que ya has cargado
 
   useEffect(() => {
     async function getMovies() {
+      const URL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=es&page=${page}`
       try {
-        const res = await fetch(URL);
+        if (!loadedPages.includes(page)) { // Verifica si la página ya ha sido cargada
+          const res = await fetch(URL);
 
-        if (!res.ok) {
-          throw new Error('No se pudo obtener la data');
+          if (!res.ok) {
+            throw new Error('No se pudo obtener la data');
+          }
+
+          const responseData = await res.json();
+
+          setData(responseData);
+
+          // Actualiza las páginas cargadas
+          setLoadedPages((prevPages) => [...prevPages, page]);
         }
-
-        const responseData = await res.json();
-
-        setData(responseData);
       } catch (error) {
         console.error(error);
       }
     }
 
     getMovies();
-  }, [page]); // Agregamos 'page' como dependencia para que se recargue cuando cambie
+  }, [page, loadedPages]);
 
   // Función para cambiar la página
   const handlePageChange = (newPage: number) => {
@@ -55,7 +60,9 @@ export default function Proximo() {
                     </CardBody>
                   )}
                   <CardHeader className="pb-3 px-4 flex flex-col items-start">
-                    <h4 className="font-semibold text-lg">{index + 1}. {movie.title}</h4>
+                    <h4 className="font-semibold text-lg">
+                      {index + 1 + (page - 1) * 20}. {movie.title}
+                    </h4>
                     <p className="text-gray-500 text-sm">{movie.release_date}</p>
                     <ButtonModal title={movie.title} data={movie.overview}/>
                   </CardHeader>
@@ -65,7 +72,7 @@ export default function Proximo() {
           </div>
           <div className="flex justify-center my-8">
             <Pagination
-            className="mb-16"
+              className="mb-16"
               isCompact
               showControls
               total={10}
@@ -78,8 +85,10 @@ export default function Proximo() {
         </>
       ) : (
         <div className="w-full flex justify-center items-center">
-          <Spinner className="mx-72 my-96 text-center" aria-label="Loading..." />        </div>
+          <Spinner className="mx-72 my-96 text-center" aria-label="Loading..." />
+        </div>
       )}
     </div>
   );
 }
+

@@ -9,21 +9,26 @@ import ButtonUp from "../components/button-up";
 export default function Movies() {
   const [data, setData] = useState<{ results: Movie[] } | null>(null);
   const [page, setPage] = useState<number>(1);
+  const [loadedPages, setLoadedPages] = useState<number[]>([]); // Guarda las páginas que ya has cargado
+
 
   const URL = `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=es&page=${page}`;
 
   useEffect(() => {
     async function getMovies() {
       try {
-        const res = await fetch(URL);
+        if (!loadedPages.includes(page)) {
+          const res = await fetch(URL)
 
-        if (!res.ok) {
-          throw new Error('No se pudo obtener la data');
+          if (!res.ok) {
+            throw new Error('Algo salio mal')
+          }
+
+          const datos = await res.json()
+          setData(datos)
+
+          setLoadedPages((prevPages) => [...prevPages, page]);
         }
-
-        const responseData = await res.json();
-
-        setData(responseData);
       } catch (error) {
         console.error(error);
       }
@@ -55,7 +60,7 @@ export default function Movies() {
                     </CardBody>
                   )}
                   <CardHeader className="pb-3 px-4 flex flex-col items-start">
-                    <h4 className="font-semibold text-lg">{index + 1}. {movie.title}</h4>
+                    <h4 className="font-semibold text-lg">{index + 1 + (page - 1) * 20}. {movie.title}</h4>
                     <p className="text-gray-500 text-sm">{movie.release_date}</p>
                     <ButtonModal title={movie.title} data={movie.overview}/>
                   </CardHeader>

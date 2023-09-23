@@ -10,8 +10,8 @@ export type Movie = {
     params: { id: string }
   }
 
-  export type filtersProps = {
+  export type FiltersProps = {
     activeFilter: string,
-    onChangeFilter: (filter: string) => void
+    onChangeFilter: (value: string) => void
   }
   

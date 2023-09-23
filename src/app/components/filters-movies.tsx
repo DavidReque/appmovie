@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Movie } from "../types";
 import { useRouter } from "next/navigation";
-import { Select, SelectItem } from "@nextui-org/react";
+import Filters from "./filters";
 
 const FiltersMovies: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<string>("popular");
@@ -16,7 +16,11 @@ const FiltersMovies: React.FC = () => {
       URL = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=es&page=1`;
     } else if (activeFilter === "top_rated") {
       URL = `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=es&page=1`;
-    }
+    } else if (activeFilter === "upcoming") {
+      URL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=es&page=1`;
+    } else if (activeFilter === "now_playing") {
+      URL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=es&page=1`;
+    } 
 
     async function fetchMovies() {
       try {
@@ -36,26 +40,13 @@ const FiltersMovies: React.FC = () => {
     fetchMovies();
   }, [activeFilter]);
 
+  const handleChangeFilter = (value: string) => {
+    setActiveFilter(value);
+  };
+
   return (
     <div className="mx-8 my-12">
-      <div className="w-full flex flex-row flex-wrap gap-4 my-14">
-        <Select
-          value={activeFilter}
-          onChange={(e) => setActiveFilter(e.target.value)}
-          radius='md'
-          label="Peliculas"
-          placeholder="Selecciona una categoria"
-          defaultSelectedKeys={["cat"]}
-          className="max-w-[45%]"
-        >
-          <SelectItem key="popular" value="popular">
-            Popular
-          </SelectItem>
-          <SelectItem key="top_rated" value="top_rated">
-            Mejor Calificado
-          </SelectItem>
-        </Select>
-    </div>  
+        <Filters activeFilter={activeFilter} onChangeFilter={setActiveFilter}/>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         {movies.map((movie) => (
           <div onClick={() => {

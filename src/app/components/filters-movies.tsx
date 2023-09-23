@@ -40,10 +40,6 @@ const FiltersMovies: React.FC = () => {
     fetchMovies();
   }, [activeFilter]);
 
-  const handleChangeFilter = (value: string) => {
-    setActiveFilter(value);
-  };
-
   return (
     <div className="mx-8 my-12">
         <Filters activeFilter={activeFilter} onChangeFilter={setActiveFilter}/>

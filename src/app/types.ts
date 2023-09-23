@@ -14,3 +14,4 @@ export type Movie = {
     activeFilter: string,
     onChangeFilter: (filter: string) => void
   }
+  

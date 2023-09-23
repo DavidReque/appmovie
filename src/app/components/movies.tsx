@@ -44,7 +44,7 @@ export default function Movies() {
             <TopMovies movies={data.results.slice(0, 10)}/>
         </Card>
         <TopPhotos/>
-        {/*<FiltersMovies>*/}
+        <FiltersMovies/>
     </div>
       ) : (
         <Spinner className="mx-72 my-96 text-center" aria-label="Loading..." />

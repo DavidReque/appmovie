@@ -44,7 +44,7 @@ const FiltersMovies: React.FC = () => {
     <div className="mx-8 my-12">
         <Filters activeFilter={activeFilter} onChangeFilter={setActiveFilter}/>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-        {movies.map((movie) => (
+        {movies.slice(0, 10).map((movie) => (
           <div onClick={() => {
             router.push(`/${movie.id}`);
           }} key={movie.id} className="w-full cursor-pointer">

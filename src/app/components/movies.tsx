@@ -8,6 +8,7 @@ import MyNavbar from "./Navbar";
 import {MyCarousel} from "./carousel";
 import TopPhotos from "./top-photos";
 import FiltersMovies from "./filters-movies";
+import FilterGeners from "./filters-geners";
 
 export default function Movies() {
     const [data, setData] = useState<{results: Movie[]} | null>(null);
@@ -45,6 +46,7 @@ export default function Movies() {
         </Card>
         <TopPhotos/>
         <FiltersMovies/>
+        <FilterGeners/>
     </div>
       ) : (
         <Spinner className="mx-72 my-96 text-center" aria-label="Loading..." />

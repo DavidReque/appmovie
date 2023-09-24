@@ -41,7 +41,8 @@ const FiltersMovies: React.FC = () => {
   }, [activeFilter]);
 
   return (
-    <div className="mx-8 my-12">
+    <section className="mx-8 my-12">
+      <h2 className="text-2xl">Filtros de peliculas</h2>
         <Filters activeFilter={activeFilter} onChangeFilter={setActiveFilter}/>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         {movies.slice(0, 10).map((movie) => (
@@ -67,7 +68,7 @@ const FiltersMovies: React.FC = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

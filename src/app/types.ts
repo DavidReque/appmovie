@@ -14,4 +14,7 @@ export type Movie = {
     activeFilter: string,
     onChangeFilter: (value: string) => void
   }
-  
+  export type FiltersPropsGender = {
+    activeFilterGender: string,
+    onChangeFilterGender: (value: string) => void
+  }

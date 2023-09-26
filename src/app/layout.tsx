@@ -4,11 +4,11 @@ import { Providers } from './providers'
 
 export const metadata: Metadata = {
   title: 'Movie app',
-  description: 'App de peliculas',
+  description: 'App de peliculas'
 }
 
-export default function RootLayout({
-  children,
+export default function RootLayout ({
+  children
 }: {
   children: React.ReactNode
 }) {

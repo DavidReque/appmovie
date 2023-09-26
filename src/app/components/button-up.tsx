@@ -1,27 +1,27 @@
-import { Button } from "@nextui-org/react";
-import React, { useState, useEffect } from "react";
+import { Button } from '@nextui-org/react'
+import React, { useState, useEffect } from 'react'
 
-export default function ButtonUp() {
-  const [isVisible, setIsVisible] = useState(false);
+export default function ButtonUp () {
+  const [isVisible, setIsVisible] = useState(false)
 
   const handleScroll = () => {
     if (window.scrollY > 100) {
-      setIsVisible(true);
+      setIsVisible(true)
     } else {
-      setIsVisible(false);
+      setIsVisible(false)
     }
-  };
+  }
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll)
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   return (
     <div className={`z-20 fixed bottom-10 right-10 ${isVisible ? 'block' : 'hidden'}`}
@@ -47,5 +47,5 @@ export default function ButtonUp() {
   </svg>
 </button>
     </div>
-  );
+  )
 }

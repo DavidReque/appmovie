@@ -1,21 +1,21 @@
-import React from "react";
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
+import React from 'react'
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from '@nextui-org/react'
 
-type ButtonModalProps = {
-  data: string; 
+interface ButtonModalProps {
+  data: string
   title: string// Cambié el tipo de data a una cadena de texto, ya que parece que la descripción es una cadena
-};
+}
 
 export const ButtonModal: React.FC<ButtonModalProps> = ({ data, title }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [backdrop, setBackdrop] = React.useState("opaque");
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const [backdrop, setBackdrop] = React.useState('opaque')
 
-  const backdrops = ["blur"];
+  const backdrops = ['blur']
 
   const handleOpen = (backdrop: string) => {
-    setBackdrop(backdrop);
-    onOpen();
-  };
+    setBackdrop(backdrop)
+    onOpen()
+  }
 
   return (
     <>
@@ -25,7 +25,7 @@ export const ButtonModal: React.FC<ButtonModalProps> = ({ data, title }) => {
             key={b}
             variant="flat"
             color="warning"
-            onPress={() => handleOpen(b)}
+            onPress={() => { handleOpen(b) }}
             className="capitalize"
           >
             Descripción
@@ -50,5 +50,5 @@ export const ButtonModal: React.FC<ButtonModalProps> = ({ data, title }) => {
         </ModalContent>
       </Modal>
     </>
-  );
-};
+  )
+}

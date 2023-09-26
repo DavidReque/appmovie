@@ -1,22 +1,22 @@
-import React, { useState } from "react";
-import { Movie } from "../types";
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // Importa los estilos del carrusel
+import React, { useState } from 'react'
+import { type Movie } from '../types'
+import { Carousel } from 'react-responsive-carousel'
+import 'react-responsive-carousel/lib/styles/carousel.min.css' // Importa los estilos del carrusel
 
-type TopMoviesCarouselProps = {
-  moviesCarousel: Movie[];
-};
+interface TopMoviesCarouselProps {
+  moviesCarousel: Movie[]
+}
 
 export const MyCarousel: React.FC<TopMoviesCarouselProps> = ({ moviesCarousel }) => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0)
 
   const handleNext = () => {
-    setCurrentSlide((prev) => (prev + 1) % moviesCarousel.length);
-  };
+    setCurrentSlide((prev) => (prev + 1) % moviesCarousel.length)
+  }
 
   const handlePrev = () => {
-    setCurrentSlide((prev) => (prev - 1 + moviesCarousel.length) % moviesCarousel.length);
-  };
+    setCurrentSlide((prev) => (prev - 1 + moviesCarousel.length) % moviesCarousel.length)
+  }
 
   return (
     <div className="carousel-container relative mx-auto my-7 w-full">
@@ -45,9 +45,9 @@ export const MyCarousel: React.FC<TopMoviesCarouselProps> = ({ moviesCarousel })
             </span>
           </p>
         </div>
-        
+
         ))}
       </Carousel>
     </div>
-  );
-};
+  )
+}

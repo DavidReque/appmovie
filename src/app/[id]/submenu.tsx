@@ -1,9 +1,9 @@
-"use client";
+'use client'
 
-import { Divider } from "@nextui-org/react";
-import Link from "next/link";
+import { Divider } from '@nextui-org/react'
+import Link from 'next/link'
 
-export default function SubMenu() {
+export default function SubMenu () {
   return (
     <div className="max-w-md mx-auto flex justify-center mb-6">
       <div>

@@ -1,44 +1,44 @@
-import React, { useState, useEffect } from "react";
-import { Movie } from "../types";
-import { useRouter } from "next/navigation";
-import Filters from "./filters";
+import React, { useState, useEffect } from 'react'
+import { type Movie } from '../types'
+import { useRouter } from 'next/navigation'
+import Filters from './filters'
 
 const FiltersMovies: React.FC = () => {
-  const [activeFilter, setActiveFilter] = useState<string>("popular");
-  const [movies, setMovies] = useState<Movie[]>([]);
+  const [activeFilter, setActiveFilter] = useState<string>('popular')
+  const [movies, setMovies] = useState<Movie[]>([])
 
   const router = useRouter()
 
   useEffect(() => {
-    let URL: string;
+    let URL: string
 
-    if (activeFilter === "popular") {
-      URL = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=es&page=1`;
-    } else if (activeFilter === "top_rated") {
-      URL = `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=es&page=1`;
-    } else if (activeFilter === "upcoming") {
-      URL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=es&page=1`;
-    } else if (activeFilter === "now_playing") {
-      URL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=es&page=1`;
-    } 
+    if (activeFilter === 'popular') {
+      URL = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=es&page=1`
+    } else if (activeFilter === 'top_rated') {
+      URL = `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=es&page=1`
+    } else if (activeFilter === 'upcoming') {
+      URL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=es&page=1`
+    } else if (activeFilter === 'now_playing') {
+      URL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=es&page=1`
+    }
 
-    async function fetchMovies() {
+    async function fetchMovies () {
       try {
-        const response = await fetch(URL);
+        const response = await fetch(URL)
 
         if (!response.ok) {
-          throw new Error("No se pudo obtener la data");
+          throw new Error('No se pudo obtener la data')
         }
 
-        const data = await response.json();
-        setMovies(data.results);
+        const data = await response.json()
+        setMovies(data.results)
       } catch (error) {
-        console.error(error);
+        console.error(error)
       }
     }
 
-    fetchMovies();
-  }, [activeFilter]);
+    fetchMovies()
+  }, [activeFilter])
 
   return (
     <section className="mx-8 my-12">
@@ -47,7 +47,7 @@ const FiltersMovies: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         {movies.slice(0, 10).map((movie) => (
           <div onClick={() => {
-            router.push(`/${movie.id}`);
+            router.push(`/${movie.id}`)
           }} key={movie.id} className="w-full cursor-pointer">
             {/* Renderiza cada película */}
             <div className="hover:shadow-xl">
@@ -69,7 +69,7 @@ const FiltersMovies: React.FC = () => {
         ))}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default FiltersMovies;
+export default FiltersMovies

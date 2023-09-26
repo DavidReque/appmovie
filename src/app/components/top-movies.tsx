@@ -1,13 +1,13 @@
-import { CardHeader, CardBody, Image} from "@nextui-org/react";
-import { Movie } from "../types";
-import { useRouter } from "next/navigation";
+import { CardHeader, CardBody, Image } from '@nextui-org/react'
+import { type Movie } from '../types'
+import { useRouter } from 'next/navigation'
 
-type TopMoviesProps = {
-    movies: Movie[];
-  };
+interface TopMoviesProps {
+  movies: Movie[]
+}
 
-export const TopMovies: React.FC<TopMoviesProps> = ({movies}) => {
-  const router = useRouter();
+export const TopMovies: React.FC<TopMoviesProps> = ({ movies }) => {
+  const router = useRouter()
 
   return (
     <>
@@ -16,7 +16,7 @@ export const TopMovies: React.FC<TopMoviesProps> = ({movies}) => {
               <div key={movie.id}
               className="cursor-pointer"
               onClick={() => {
-                router.push(`/${movie.id}`);
+                router.push(`/${movie.id}`)
               }}>
                 {movie.backdrop_path && (
                   <CardBody className="overflow-visible py-2">

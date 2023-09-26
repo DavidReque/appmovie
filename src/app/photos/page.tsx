@@ -1,7 +1,7 @@
-import MyPhotos from "./my-photos";
-import SubMenu from "./submenu";
+import MyPhotos from './my-photos'
+import SubMenu from './submenu'
 
-export default function Photos() {
+export default function Photos () {
   return (
     <div>
         <SubMenu/>

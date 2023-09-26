@@ -1,50 +1,51 @@
 'use client'
 
-import { useState, useEffect } from "react";
-import { Card, CardBody, CardHeader, Image, Pagination, Spinner } from "@nextui-org/react";
-import { Movie } from "../types";
-import {ButtonModal} from "../components/button-modal";
-import ButtonUp from "../components/button-up";
+import { useState, useEffect } from 'react'
+import { Card, CardBody, CardHeader, Image, Pagination, Spinner } from '@nextui-org/react'
+import { type Movie } from '../types'
+import { ButtonModal } from '../components/button-modal'
+import ButtonUp from '../components/button-up'
 
-export default function Proximo() {
-  const [data, setData] = useState<{ results: Movie[] } | null>(null);
-  const [page, setPage] = useState<number>(1);
-  const [loadedPages, setLoadedPages] = useState<number[]>([]); // Guarda las páginas que ya has cargado
+export default function Proximo () {
+  const [data, setData] = useState<{ results: Movie[] } | null>(null)
+  const [page, setPage] = useState<number>(1)
+  const [loadedPages, setLoadedPages] = useState<number[]>([]) // Guarda las páginas que ya has cargado
 
   useEffect(() => {
-    async function getMovies() {
+    async function getMovies () {
       const URL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=es&page=${page}`
       try {
         if (!loadedPages.includes(page)) { // Verifica si la página ya ha sido cargada
-          const res = await fetch(URL);
+          const res = await fetch(URL)
 
           if (!res.ok) {
-            throw new Error('No se pudo obtener la data');
+            throw new Error('No se pudo obtener la data')
           }
 
-          const responseData = await res.json();
+          const responseData = await res.json()
 
-          setData(responseData);
+          setData(responseData)
 
           // Actualiza las páginas cargadas
-          setLoadedPages((prevPages) => [...prevPages, page]);
+          setLoadedPages((prevPages) => [...prevPages, page])
         }
       } catch (error) {
-        console.error(error);
+        console.error(error)
       }
     }
 
-    getMovies();
-  }, [page, loadedPages]);
+    getMovies()
+  }, [page, loadedPages])
 
   // Función para cambiar la página
   const handlePageChange = (newPage: number) => {
-    setPage(newPage);
-  };
+    setPage(newPage)
+  }
 
   return (
     <div className="ml-10 mb-12 mr-10">
-      {data ? (
+      {data
+        ? (
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {data.results.map((movie, index) => (
@@ -83,12 +84,12 @@ export default function Proximo() {
             <ButtonUp/>
           </div>
         </>
-      ) : (
+          )
+        : (
         <div className="w-full flex justify-center items-center">
           <Spinner className="mx-72 my-96 text-center" aria-label="Loading..." />
         </div>
-      )}
+          )}
     </div>
-  );
+  )
 }
-

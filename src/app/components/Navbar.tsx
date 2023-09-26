@@ -1,14 +1,14 @@
-import React from "react";
-import {Navbar, NavbarBrand, NavbarMenuToggle, NavbarContent, NavbarItem, Link, Button, NavbarMenu, NavbarMenuItem} from "@nextui-org/react";
+import React from 'react'
+import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarContent, NavbarItem, Link, Button, NavbarMenu, NavbarMenuItem } from '@nextui-org/react'
 
-export default function MyNavbar() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+export default function MyNavbar () {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false)
 
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
         <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           className="sm:hidden"
         />
         <NavbarBrand>
@@ -40,31 +40,31 @@ export default function MyNavbar() {
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-        {/*<NavbarItem>
+        {/* <NavbarItem>
           <Button as={Link} color="primary" href="#" variant="flat">
             Sign Up
           </Button>
-        </NavbarItem>*/}
+        </NavbarItem> */}
       </NavbarContent>
       <NavbarMenu>
         <NavbarMenuItem>
           <ul className="flex justify-center flex-col items-center">
-          <Link 
+          <Link
           className="text-gray-300 my-2 text-lg"
           href="/topmovies">
             Peliculas Populares
           </Link>
-          <Link 
+          <Link
           className="text-gray-300 my-2 text-lg"
           href="/mejorcalificado">
             Mejor calificado
           </Link>
-          <Link 
+          <Link
           className="text-gray-300 my-2 text-lg"
           href="/proximo">
             Próximo
           </Link>
-          <Link 
+          <Link
           className="text-blue-600 my-2 text-lg"
           href="/photos">
             Fotos
@@ -73,5 +73,5 @@ export default function MyNavbar() {
         </NavbarMenuItem>
       </NavbarMenu>
     </Navbar>
-  );
+  )
 }

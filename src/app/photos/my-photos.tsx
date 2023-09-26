@@ -1,18 +1,18 @@
 'use client'
 
-import React, { useState } from "react";
-import { images } from "../movies";
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
-import ButtonUp from "../components/button-up";
+import React, { useState } from 'react'
+import { images } from '../movies'
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from '@nextui-org/react'
+import ButtonUp from '../components/button-up'
 
-export default function MyPhotos() {
-  const [selectedImage, setSelectedImage] = useState<string| null>(null);
-  const { isOpen, onOpen, onClose } = useDisclosure();
+export default function MyPhotos () {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   const openModal = (image: string) => {
-    setSelectedImage(image);
-    onOpen();
-  };
+    setSelectedImage(image)
+    onOpen()
+  }
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 p-7">
@@ -20,7 +20,7 @@ export default function MyPhotos() {
         <div
           key={index}
           className="relative group cursor-pointer rounded-lg overflow-hidden shadow-md hover:shadow-lg transform hover:scale-105 transition-transform duration-300"
-          onClick={() => openModal(img.src)}
+          onClick={() => { openModal(img.src) }}
         >
           <img
             src={img.src}
@@ -55,5 +55,5 @@ export default function MyPhotos() {
       </Modal>
       <ButtonUp/>
     </div>
-  );
+  )
 }

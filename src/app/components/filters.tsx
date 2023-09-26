@@ -1,18 +1,18 @@
 import React from 'react'
 
-import { Select, SelectItem } from '@nextui-org/react';
-import { FiltersProps } from '../types';
+import { Select, SelectItem } from '@nextui-org/react'
+import { type FiltersProps } from '../types'
 
 const Filters: React.FC<FiltersProps> = ({ activeFilter, onChangeFilter }) => {
   return (
     <div className="w-full flex flex-row flex-wrap gap-4 my-14">
       <Select
         value={activeFilter}
-        onChange={(e) => onChangeFilter(e.target.value)}
+        onChange={(e) => { onChangeFilter(e.target.value) }}
         radius="md"
         label="Peliculas"
         placeholder="Selecciona una categoria"
-        defaultSelectedKeys={["cat"]}
+        defaultSelectedKeys={['cat']}
         className="max-w-[45%]"
       >
         <SelectItem key="popular" value="popular">
@@ -29,7 +29,7 @@ const Filters: React.FC<FiltersProps> = ({ activeFilter, onChangeFilter }) => {
         </SelectItem>
       </Select>
     </div>
-  );
-};
+  )
+}
 
-export default Filters;
+export default Filters

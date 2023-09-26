@@ -7,7 +7,7 @@ import { ButtonModal } from '../components/button-modal'
 import ButtonUp from '../components/button-up'
 
 export default function Proximo () {
-  const [data, setData] = useState<{ results: Movie[] } | null>(null)
+  const [data, setData] = useState<{ results: Movie[] } >({ results: [] })
   const [page, setPage] = useState<number>(1)
   const [loadedPages, setLoadedPages] = useState<number[]>([]) // Guarda las páginas que ya has cargado
 
@@ -44,7 +44,7 @@ export default function Proximo () {
 
   return (
     <div className="ml-10 mb-12 mr-10">
-      {data
+      {data.results.length > 0
         ? (
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">

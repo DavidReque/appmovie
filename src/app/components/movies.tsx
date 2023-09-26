@@ -11,7 +11,7 @@ import FiltersMovies from './filters-movies'
 import FilterGeners from './filters-geners'
 
 export default function Movies () {
-  const [data, setData] = useState<{ results: Movie[] } | null>(null)
+  const [data, setData] = useState<{ results: Movie[] }>({ results: [] })
   const URL = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=es`
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function Movies () {
 
   return (
         <div>
-            {data
+            {data.results.length > 0
               ? (
     <div>
     <MyNavbar />

@@ -38,7 +38,7 @@ export default function MyPhotos () {
         <ModalContent>
           <ModalHeader>Imagen en pantalla completa</ModalHeader>
           <ModalBody>
-            {selectedImage && (
+            {selectedImage !== null && (
               <img
                 src={selectedImage}
                 alt="Imagen en pantalla completa"

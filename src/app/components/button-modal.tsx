@@ -19,7 +19,7 @@ export const ButtonModal: React.FC<ButtonModalProps> = ({ data, title }) => {
 
   return (
     <>
-      <div className="flex flex-wrap gap-3 my-5">
+      <div className={`flex flex-wrap gap-3 my-5 backdrop-${backdrop}`}>
         {backdrops.map((b) => (
           <Button
             key={b}

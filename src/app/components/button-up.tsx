@@ -1,4 +1,3 @@
-import { Button } from '@nextui-org/react'
 import React, { useState, useEffect } from 'react'
 
 export default function ButtonUp () {

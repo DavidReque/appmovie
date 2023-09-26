@@ -10,14 +10,6 @@ interface TopMoviesCarouselProps {
 export const MyCarousel: React.FC<TopMoviesCarouselProps> = ({ moviesCarousel }) => {
   const [currentSlide, setCurrentSlide] = useState(0)
 
-  const handleNext = () => {
-    setCurrentSlide((prev) => (prev + 1) % moviesCarousel.length)
-  }
-
-  const handlePrev = () => {
-    setCurrentSlide((prev) => (prev - 1 + moviesCarousel.length) % moviesCarousel.length)
-  }
-
   return (
     <div className="carousel-container relative mx-auto my-7 w-full">
       <Carousel

@@ -40,7 +40,6 @@ export default function FilterGeners () {
           }} key={movie.id} className="w-full cursor-pointer">
             {/* Renderiza cada película */}
             <div className="hover:shadow-xl">
-              {movie.backdrop_path && (
                 <div className="overflow-hidden p-0">
                   <img
                     src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
@@ -48,7 +47,6 @@ export default function FilterGeners () {
                     className="object-cover w-full rounded-t-lg"
                   />
                 </div>
-              )}
               <div className="pb-3 px-4 flex flex-col items-start">
                 <h4 className="font-semibold text-lg">{movie.title}</h4>
                 <p className="text-gray-500 text-sm">{movie.release_date}</p>

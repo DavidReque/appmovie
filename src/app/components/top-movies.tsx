@@ -18,7 +18,6 @@ export const TopMovies: React.FC<TopMoviesProps> = ({ movies }) => {
               onClick={() => {
                 router.push(`/${movie.id}`)
               }}>
-                {movie.backdrop_path && (
                   <CardBody className="overflow-visible py-2">
                     <Image
                       alt={movie.title}
@@ -27,7 +26,6 @@ export const TopMovies: React.FC<TopMoviesProps> = ({ movies }) => {
                       width={270}
                     />
                   </CardBody>
-                )}
                 <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
                   <h4 className="font-bold text-large">{index + 1}. {movie.title}</h4>
                 </CardHeader>

@@ -50,7 +50,6 @@ export default function Movies () {
             {data.results.map((movie, index) => (
               <div key={movie.id} className="w-full">
                 <Card className="hover:shadow-xl">
-                  {movie.backdrop_path && (
                     <CardBody className="overflow-hidden p-0">
                       <Image
                         alt={movie.title}
@@ -58,7 +57,6 @@ export default function Movies () {
                         src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
                       />
                     </CardBody>
-                  )}
                   <CardHeader className="pb-3 px-4 flex flex-col items-start">
                     <h4 className="font-semibold text-lg">{index + 1 + (page - 1) * 20}. {movie.title}</h4>
                     <p className="text-gray-500 text-sm">{movie.release_date}</p>

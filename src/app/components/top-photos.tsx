@@ -1,7 +1,6 @@
 import React from 'react'
 import { images } from '../movies'
 import Link from 'next/link'
-import ButtonUp from './button-up'
 
 export default function TopPhotos () {
   const imageArray = images.slice(0, 4)

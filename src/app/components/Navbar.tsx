@@ -1,5 +1,6 @@
 import React from 'react'
 import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarContent, NavbarItem, Link, NavbarMenu, NavbarMenuItem } from '@nextui-org/react'
+import Search from './Search'
 
 export default function MyNavbar () {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
@@ -40,12 +41,14 @@ export default function MyNavbar () {
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
+        <Search/>
         {/* <NavbarItem>
           <Button as={Link} color="primary" href="#" variant="flat">
             Sign Up
           </Button>
         </NavbarItem> */}
       </NavbarContent>
+
       <NavbarMenu>
         <NavbarMenuItem>
           <ul className="flex justify-center flex-col items-center">

@@ -9,6 +9,7 @@ import { MyCarousel } from './carousel'
 import TopPhotos from './top-photos'
 import FiltersMovies from './filters-movies'
 import FilterGeners from './filters-geners'
+import Footer from './footer'
 
 export default function Movies () {
   const [data, setData] = useState<{ results: Movie[] }>({ results: [] })
@@ -48,6 +49,7 @@ export default function Movies () {
         <TopPhotos/>
         <FiltersMovies/>
         <FilterGeners/>
+        <Footer/>
     </div>
                 )
               : (
